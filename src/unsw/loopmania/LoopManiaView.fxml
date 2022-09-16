@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!-- TODO = modify and expand the GUI? -->
+<!-- anchorPaneRoot is the background of the main game -->
+
+<AnchorPane fx:id="anchorPaneRoot" onKeyPressed="#handleKeyPress" prefHeight="388.0" prefWidth="216.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <!-- HBox is used to stack items horizontally left to right -->
+   <HBox prefHeight="388.0" prefWidth="216.0">
+      <!-- VBox is used to stack items vertically top to bottom -->
+      <VBox>
+         <children>
+             <!-- squares contains the path, buildings, character, and enemies -->
+            <GridPane fx:id="squares" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+               <columnConstraints>
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+
+               </children>
+            </GridPane>
+
+            <!-- this BorderPane contains the ground under the cards and the cards -->
+            <BorderPane>
+               <bottom>
+                     <!-- cards GridPane holds the cards which can be used on the map -->
+                     <GridPane fx:id="cards" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+                        <columnConstraints>
+                           <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                           <RowConstraints />
+                        </rowConstraints>
+                        <children>
+
+                        </children>
+                     </GridPane>
+               </bottom>
+            </BorderPane>
+         </children>
+      </VBox>
+      <VBox prefHeight="393.0" prefWidth="196.0">
+         <children>
+            <HBox prefHeight="115.0" prefWidth="197.0">
+               <children>
+                  <VBox prefHeight="129.0" prefWidth="186.0">
+                     <children>
+                        <HBox prefHeight="32.0" prefWidth="186.0">
+                           <children>
+                              <ImageView fx:id="hp" fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                          <Image url="@../../images/heart.png" />
+                                    </image>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ProgressBar fx:id="hpBar" prefHeight="11.0" prefWidth="149.0" progress="0.0">
+                                 <HBox.margin>
+                                    <Insets left="3.0" top="11.0" />
+                                 </HBox.margin>
+                              </ProgressBar>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="29.0" prefWidth="186.0">
+                           <children>
+                              <ImageView fx:id="gold" fitHeight="24.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/gold_pile.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Text fx:id="goldCount" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="68.13677978515625">
+                                 <HBox.margin>
+                                    <Insets left="9.0" top="4.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <HBox prefHeight="29.0" prefWidth="111.0">
+                                 <children>
+                                    <ImageView fx:id="coin" fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/doggiecoin.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text fx:id="coinCount" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="42.13672065734863">
+                                       <HBox.margin>
+                                          <Insets left="6.0" top="3.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Text fx:id="roundCount" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <!-- equippedItems contains the equipment equipped by the character in special slots -->
+            <!-- TODO = extend this to have slots for equipping armour, shields, helmets, and any other equippable items -->
+            <GridPane fx:id="equippedItems" prefHeight="64.0" prefWidth="180.0">
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <!-- swordCell is the cell where a sword intended to be equipped will be dragged by the human player -->
+                  <ImageView id="swordCell" fx:id="swordSlot" GridPane.columnIndex="0" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">    
+                     <image>
+                        <Image url="@../../images/sword_unequipped.png" />
+                     </image>
+                  </ImageView>
+                  <!-- blankCell is an empty cell -->
+                  <ImageView id="blankCell" fx:id="armourSlot" fitWidth="32.0" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">    
+                     <image>
+                        <Image url="@../../images/image_just_black_tiny.png" />
+                     </image>
+                  </ImageView>
+                  <!-- shieldCell is the cell where a shield intended to be equipped will be dragged by the human player -->
+                  <ImageView id="shieldCell" fx:id="shieldSlot" GridPane.columnIndex="2" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">    
+                     <image>
+                        <Image url="@../../images/shield_unequipped.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="swordCell" fx:id="helmetSlot" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@../../images/helmet_slot.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="-12.0" />
+               </padding>
+            </GridPane>
+            <!-- unequippedInventory is for unequipped items, which can be dragged into the equipped inventory -->
+            <GridPane fx:id="unequippedInventory" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+               <columnConstraints>
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" top="5.0" />
+               </VBox.margin>
+            </GridPane>
+
+            <!-- clicking this button returns the human player to the main menu -->
+            <ImageView fx:id="startGameButton" onMouseClicked="#switchToMainMenu" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+               <image>
+                     <Image url="@../../images/back_to_main.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="22.0" />
+               </VBox.margin>
+            </ImageView>
+            <!-- clicking this button returns the human player to the main menu -->
+            
+                                    <Button onAction="#switchToShop" prefHeight="12.0" prefWidth="175.0" text="Open Shop View (Debugging only)" />
+            <Label prefHeight="16.0" prefWidth="67.0" text="GOALS:" underline="true">
+               <font>
+                  <Font name="Book Antiqua Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="7.0" top="1.0" />
+               </VBox.margin>
+            </Label>
+            <VBox prefHeight="115.0" prefWidth="196.0">
+               <children>
+                  <VBox prefHeight="50.0" prefWidth="196.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="99.0" text="Experience Goal">
+                           <font>
+                              <Font name="Book Antiqua" size="11.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar fx:id="expGoalProgress" prefHeight="8.0" prefWidth="164.0" progress="0.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="6.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="48.0" prefWidth="196.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="99.0" text="Gold Goal">
+                           <font>
+                              <Font name="Book Antiqua" size="11.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar fx:id="goldGoalProgress" prefHeight="8.0" prefWidth="164.0" progress="0.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="6.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="64.0" prefWidth="196.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="99.0" text="Boss Goal">
+                           <font>
+                              <Font name="Book Antiqua" size="11.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar fx:id="bossGoalProgress" prefHeight="8.0" prefWidth="164.0" progress="0.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="6.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+            
+         </children>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+         
+      </VBox>
+   </HBox>
+</AnchorPane>

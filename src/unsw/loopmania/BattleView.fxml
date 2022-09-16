@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="background" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/battleBackground.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2b9e3268" height="200.0" layoutX="33.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="263.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f1b1ba8" height="200.0" layoutX="300.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="263.0" />
+      <TextArea fx:id="battleLog" layoutX="33.0" layoutY="261.0" prefHeight="125.0" prefWidth="527.0" />
+      <VBox fx:id="allies" layoutX="46.0" layoutY="41.0" prefHeight="174.0" prefWidth="237.0">
+         <children>
+            <Text lineSpacing="1.0" stroke="#07ff00" strokeType="OUTSIDE" text="HERO:" textAlignment="CENTER" wrappingWidth="82.80340576171875">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <HBox fx:id="characterDetails" prefHeight="50.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="characterImageView" fitHeight="41.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox prefHeight="33.0" prefWidth="183.0">
+                     <children>
+                        <ProgressBar fx:id="characterHealth" prefHeight="11.0" prefWidth="187.0" progress="0.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></ProgressBar>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox fx:id="a1" prefHeight="27.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="a1View" fitHeight="25.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="17.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ProgressBar fx:id="a1HP" prefHeight="7.0" prefWidth="129.0" progress="0.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="a2" prefHeight="27.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="a2View" fitHeight="25.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="17.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ProgressBar fx:id="a2HP" prefHeight="7.0" prefWidth="129.0" progress="0.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="a3" prefHeight="27.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="a3View" fitHeight="25.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="17.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ProgressBar fx:id="a3HP" prefHeight="7.0" prefWidth="129.0" progress="0.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox fx:id="enemies" layoutX="313.0" layoutY="39.0" prefHeight="184.0" prefWidth="237.0">
+         <children>
+            <Text lineSpacing="1.0" stroke="RED" strokeType="OUTSIDE" text="ENEMIES:" textAlignment="CENTER" wrappingWidth="82.80340576171875">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <HBox fx:id="e1" prefHeight="27.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="e1View" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" />
+                  <ProgressBar fx:id="e1HP" prefHeight="9.0" prefWidth="200.0" progress="0.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="e2" prefHeight="35.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="e2View" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" />
+                  <ProgressBar fx:id="e2HP" prefHeight="9.0" prefWidth="200.0" progress="0.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="e3" prefHeight="35.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="e3View" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" />
+                  <ProgressBar fx:id="e3HP" prefHeight="9.0" prefWidth="200.0" progress="0.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="e4" prefHeight="36.0" prefWidth="237.0">
+               <children>
+                  <ImageView fx:id="e4View" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" />
+                  <ProgressBar fx:id="e4HP" prefHeight="9.0" prefWidth="200.0" progress="0.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text fill="WHITE" layoutX="33.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BattleLog:" wrappingWidth="82.80340576171875" />
+   </children>
+</AnchorPane>

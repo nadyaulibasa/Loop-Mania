@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="shopScene" prefHeight="580.0" prefWidth="600.0" style="-fx-background-color: #56626c;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane fx:id="topShopPane" layoutX="200.0" layoutY="29.0" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #56626c;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <Label layoutX="218.0" layoutY="2.0" prefHeight="30.0" prefWidth="160.0" text="Trading Centre" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnGoBack" layoutX="6.0" layoutY="6.0" minWidth="46.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="22.0" prefWidth="44.0" style="-fx-background-color: snow;" text="Back" textFill="#5c5959">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="paneShop" layoutX="8.0" layoutY="48.0" prefHeight="200.0" prefWidth="288.0" style="-fx-background-color: snow;" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="304.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="258.0" text="Shop">
+               <font>
+                  <Font name="Roboto Medium" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="40.0" text="Select items to purchase:">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="paneShopItemList" layoutX="15.0" layoutY="75.0" prefHeight="264.0" prefWidth="258.0" style="-fx-background-color: linen;">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="129.0" minWidth="129.0" prefWidth="129.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="129.0" minWidth="129.0" prefWidth="129.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="26.0" minHeight="26.0" prefHeight="26.0" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="26.0" minHeight="26.0" prefHeight="26.0" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="26.0" minHeight="26.0" prefHeight="26.0" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="26.0" minHeight="26.0" prefHeight="26.0" valignment="TOP" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Label fx:id="lbPurchaseTotal" layoutX="14.0" layoutY="354.0" prefHeight="26.0" prefWidth="258.0" text="Total: ">
+               <font>
+                  <Font name="Roboto Medium" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnPurchaseItems" layoutX="53.0" layoutY="390.0" minWidth="180.0" mnemonicParsing="false" onAction="#purchaseSelectedItems" style="-fx-background-color: #56626c;" text="Purchase Selected Items" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="paneInventory" layoutX="278.0" layoutY="100.0" prefHeight="200.0" prefWidth="288.0" style="-fx-background-color: snow;" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Label layoutX="14.0" layoutY="40.0" text="Select items to sell:">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="paneInventoryList" layoutX="64.0" layoutY="161.0" prefHeight="146.0" prefWidth="143.0" style="-fx-background-color: linen;">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="258.0" text="The Character Inventory">
+               <font>
+                  <Font name="Roboto Medium" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbSellTotal" layoutX="14.0" layoutY="354.0" prefHeight="26.0" prefWidth="258.0" text="Total: ">
+               <font>
+                  <Font name="Roboto Medium" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSellItems" layoutX="53.0" layoutY="390.0" minWidth="180.0" mnemonicParsing="false" onAction="#sellSelectedItems" style="-fx-background-color: #56626c;" text="Sell Selected Items" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lbTotalGold" layoutX="40.0" layoutY="60.0" prefHeight="36.0" prefWidth="228.0" text="Gold: ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgViewGold" fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="68.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lbTotalCoins" layoutX="40.0" layoutY="96.0" prefHeight="36.0" prefWidth="228.0" text="Doggie Coins: ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgViewCoins" fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="104.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lbSellTotal2" layoutX="14.0" layoutY="436.0" prefHeight="26.0" prefWidth="159.0" text="Amount of Coins to Sell:">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCoins" layoutX="173.0" layoutY="437.0" prefHeight="25.0" prefWidth="99.0" promptText="value">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnSellCoins" layoutX="53.0" layoutY="492.0" minWidth="180.0" mnemonicParsing="false" onAction="#sellDoggieCoins" style="-fx-background-color: #56626c;" text="Sell Doggie Coins" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lbEqGold" layoutX="14.0" layoutY="462.0" prefHeight="26.0" prefWidth="258.0" text="Equivalent in gold:">
+               <font>
+                  <Font name="Roboto" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
